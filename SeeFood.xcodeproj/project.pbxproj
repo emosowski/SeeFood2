@@ -12,7 +12,26 @@
 		A18E87E1202E048E0099648C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18E87DF202E048E0099648C /* Main.storyboard */; };
 		A18E87E3202E048E0099648C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A18E87E2202E048E0099648C /* Assets.xcassets */; };
 		A18E87E6202E048E0099648C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18E87E4202E048E0099648C /* LaunchScreen.storyboard */; };
+		A18E87EF202E05160099648C /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18E87ED202E05150099648C /* VisualRecognitionV3.framework */; };
+		A18E87F0202E05160099648C /* VisualRecognitionV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18E87ED202E05150099648C /* VisualRecognitionV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A18E87F1202E05160099648C /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18E87EE202E05160099648C /* SVProgressHUD.framework */; };
+		A18E87F2202E05160099648C /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18E87EE202E05160099648C /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A18E87F3202E05160099648C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A18E87F2202E05160099648C /* SVProgressHUD.framework in Embed Frameworks */,
+				A18E87F0202E05160099648C /* VisualRecognitionV3.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A18E87D8202E048D0099648C /* SeeFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +41,8 @@
 		A18E87E2202E048E0099648C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A18E87E5202E048E0099648C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A18E87E7202E048E0099648C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A18E87ED202E05150099648C /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VisualRecognitionV3.framework; sourceTree = "<group>"; };
+		A18E87EE202E05160099648C /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A18E87F1202E05160099648C /* SVProgressHUD.framework in Frameworks */,
+				A18E87EF202E05160099648C /* VisualRecognitionV3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +61,8 @@
 		A18E87CF202E048D0099648C = {
 			isa = PBXGroup;
 			children = (
+				A18E87EE202E05160099648C /* SVProgressHUD.framework */,
+				A18E87ED202E05150099648C /* VisualRecognitionV3.framework */,
 				A18E87DA202E048D0099648C /* SeeFood */,
 				A18E87D9202E048D0099648C /* Products */,
 			);
@@ -74,6 +99,7 @@
 				A18E87D4202E048D0099648C /* Sources */,
 				A18E87D5202E048D0099648C /* Frameworks */,
 				A18E87D6202E048D0099648C /* Resources */,
+				A18E87F3202E05160099648C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,12 +302,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2L4T5WD2L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SeeFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilyosowski.SeeFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -291,12 +321,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2L4T5WD2L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SeeFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilyosowski.SeeFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
