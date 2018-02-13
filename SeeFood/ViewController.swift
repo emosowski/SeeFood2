@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    var classificationResults : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +44,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             try? imageData?.write(to: fileURL, options: [])
             
-            visualRecognition.classify(imageFile: fileURL, success: { (ClassifiedImages) in
-                print(ClassifiedImages)
+            visualRecognition.classify(imageFile: fileURL, success: { (classifiedImages) in
+                
+                let classes = classifiedImages.images.first!.classifiers.first!.classes
+                
+                self.classificationResults = []
+                
+                for index in 0..<classes.count {
+                    self.classificationResults.append(classes[index].classification)
+                }
+                print(self.classificationResults)
+                
+                if self.classificationResults.contains("hotdog") {
+                    DispatchQueue.main.async {
+                        self.navigationItem.title = "Hotdog!"
+                    }
+                    
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.navigationItem.title = "Not Hotdog!"
+                    }
+                    
+                }
             })
             
         } else {
@@ -53,15 +75,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }
     }
-
+    
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
-        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.sourceType = .camera
         imagePicker.allowsEditing = false
         
         present(imagePicker, animated: true, completion: nil)
     }
     
-
+    
 }
 
